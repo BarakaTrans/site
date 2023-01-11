@@ -1,0 +1,28 @@
+<header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel">
+            <a class="navbar-brand mx-5" href="{% url 'mywebapp-home' %}">Musafir Muslim</a>
+
+            <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto" id="left-nav">
+                    <li class="nav-item"><a class="nav-link " href="{% url 'mywebapp-home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'mywebapp-post' %}">Post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'mywebapp-about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Intertaiment</a></li>
+                </ul>
+                <!-- Navbar Right Side -->
+                <ul class="navbar-nav ms-auto mx-5" id="right-nav">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a></li>
+                    <li class="nav-item"><a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-item nav-link" href="{% url 'login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-item nav-link" href="{% url 'register' %}">Register</a></li>
+                    {% endif%}
+                </ul>
+            </div>
+    </nav>
+</header>
